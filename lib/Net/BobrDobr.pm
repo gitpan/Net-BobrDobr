@@ -50,7 +50,7 @@ sub new ($%) {
     unless (exists ($self->{'.api-key'}) ||
 	    exists ($self->{'.api-secret'})) {
 	$error = "not supplied api-key or api-secret";
-	return;
+	# return;
     }
 
     $self->{'.ua'} = new LWP::UserAgent ('agent' => $opt{'agent'} || $agent,

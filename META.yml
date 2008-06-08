@@ -1,7 +1,7 @@
 --- #YAML:1.0
 name:                Net-BobrDobr
-version:             0.02
-abstract:            using BobrDobr.ru service
+version:             0.03
+abstract:            Using BobrDobr.ru service
 license:             ~
 author:              
     - Artur Penttinen <artur+perl@niif.spb.su>

@@ -2,7 +2,6 @@ Changes
 MANIFEST
 Makefile.PL
 README
-bobr-key
 lib/Net/BobrDobr.pm
 t/01-net-bobrdobr.t
 META.yml                                 Module meta-data (added by MakeMaker)

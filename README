@@ -12,6 +12,9 @@ To install this module type the following:
    make test
    make install
 
+For testing you must obtain api key and secret key from bobrdobr.ru
+adminstration (see http://bobrdobr.ru/api.html).
+
 DEPENDENCIES
 
 This module requires these other modules and libraries:

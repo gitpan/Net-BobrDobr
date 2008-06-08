@@ -1,17 +1,27 @@
 use 5.006;
 use ExtUtils::MakeMaker;
 
+print "Please, enter your api and secret keys from bobrdobr.ru site\n";
+my $api_key = prompt ("api key: ");
+my $sec_key = prompt ("api secure key: ");
+
 WriteMakefile(
     NAME	=> "Net::BobrDobr",
-    VERSION	=> "0.02",
+    VERSION	=> "0.03",
     PREREQ_PM	=> { 'Digest::MD5' => 0,
 		     'LWP::UserAgent' => 0,
 		     'URI::Escape' => 0,
 		     'IO::File' => 0,
 		     'XML::Simple' => 0 },
-    ABSTRACT	=> "using BobrDobr.ru service",
+    ABSTRACT	=> "Using BobrDobr.ru service",
     AUTHOR	=> "Artur Penttinen <artur+perl\@niif.spb.su>"
 );
+
+unless ($api_key eq "" || $api_sec eq "") {
+	open F,"> bobr-api";
+	print F "api-key: $api_key\napi-secret: $api_sec\n";
+	close F;
+}
 
 exit;
 

@@ -1,23 +1,27 @@
 #! perl
 
 use strict;
-use Test::More tests => 16;
+use Test::More tests => -f "bobr-key" ? 16 : 1;
 
 BEGIN { use_ok('Net::BobrDobr') };
 
 my $file = -f "bobr-key" ? "bobr-key" : "../bobr-key";
 my @act = qw(net-bobrdobr net-bobrdobr);
 
+unless (-f "bobr-key") {
+	exit;
+}
+
 my $bd = new Net::BobrDobr ('api' => $file,'debug' => 0);
 isa_ok ($bd,"Net::BobrDobr");
-
-my $con = $bd->connect ($act[0],$act[1]);
-ok (defined $con,"connect");
 
 # ECHO
 my $r0 = $bd->call ("test.echo",'test1' => "one",'test2' => "two");
 ok ($r0->{'stat'} eq "ok","test.echo status");
 ok ($r0->{'test1'} eq "one" && $r0->{'test2'} eq "two","test.echo answer");
+
+my $con = $bd->connect ($act[0],$act[1]);
+ok (defined $con,"connect");
 
 # GETBOOKMARKS
 my $r1 = $bd->call ("userpages.getBookmarks");
