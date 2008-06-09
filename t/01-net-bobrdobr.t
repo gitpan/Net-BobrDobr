@@ -1,16 +1,16 @@
 #! perl
 
 use strict;
-use Test::More tests => -f "bobr-key" ? 16 : 1;
+use Test::More;
 
-BEGIN { use_ok('Net::BobrDobr') };
+BEGIN {
+	our $file = -f "bobr-key" ? "bobr-key" : "../bobr-key";
+	plan skip_all => "No bobrdobr api and/or secret keys available"
+		unless (-f "bobr-key");
+	use_ok('Net::BobrDobr')
+};
 
-my $file = -f "bobr-key" ? "bobr-key" : "../bobr-key";
 my @act = qw(net-bobrdobr net-bobrdobr);
-
-unless (-f "bobr-key") {
-	exit;
-}
 
 my $bd = new Net::BobrDobr ('api' => $file,'debug' => 0);
 isa_ok ($bd,"Net::BobrDobr");

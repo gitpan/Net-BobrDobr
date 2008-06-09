@@ -7,7 +7,7 @@ my $sec_key = prompt ("api secure key: ");
 
 WriteMakefile(
     NAME	=> "Net::BobrDobr",
-    VERSION	=> "0.03",
+    VERSION	=> "0.04",
     PREREQ_PM	=> { 'Digest::MD5' => 0,
 		     'LWP::UserAgent' => 0,
 		     'URI::Escape' => 0,
